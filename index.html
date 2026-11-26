@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hidroflux SpA — Pronto</title>
+  <meta name="description" content="Hidroflux SpA · Soluciones integrales para el manejo de fluidos. Pronto.">
+  <meta name="theme-color" content="#0A7DB0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #0B2D5B;
+      --blue:   #0A7DB0;
+      --cyan:   #1FB8CE;
+      --green:  #6AB82A;
+      --yellow: #F9D028;
+      --bg:     #FFFFFF;
+      --muted:  #5B6B80;
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    /* Franja de marca superior: azul + acento verde lateral, como el folleto */
+    .top {
+      height: 10px;
+      background: linear-gradient(90deg, var(--green) 0 24px, var(--blue) 24px);
+    }
+    .stripe {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      height: 6px;
+    }
+    .stripe span:nth-child(1) { background: var(--yellow); }
+    .stripe span:nth-child(2) { background: var(--cyan); }
+    .stripe span:nth-child(3) { background: var(--green); }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      padding: 48px 16px;
+      gap: clamp(28px, 6vh, 56px);
+    }
+
+    .logo {
+      width: 560px;
+      max-width: 100%;
+      min-width: 0;
+      height: auto;
+      display: block;
+      /* lleva a blanco puro el fondo casi-blanco del JPEG */
+      filter: brightness(1.05) contrast(1.06);
+      animation: rise .9s ease-out both;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: clamp(3.2rem, 12vw, 7.5rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--blue) 45%, var(--cyan) 70%, var(--green) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rise .9s .15s ease-out both;
+    }
+
+    .dots {
+      display: inline-flex;
+      gap: 10px;
+      animation: rise .9s .3s ease-out both;
+    }
+    .dots i {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    .dots i:nth-child(1) { background: var(--yellow); }
+    .dots i:nth-child(2) { background: var(--cyan);  animation-delay: .2s; }
+    .dots i:nth-child(3) { background: var(--green); animation-delay: .4s; }
+
+    footer {
+      padding: 20px 16px 24px;
+      text-align: center;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    footer strong { color: var(--green); font-weight: 600; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(.7); opacity: .5; }
+      50%      { transform: scale(1);  opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top" aria-hidden="true"></div>
+  <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <main>
+    <img class="logo" src="assets/logo-hidroflux.jpg"
+         alt="Hidroflux SpA — Soluciones integrales para el manejo de fluidos"
+         width="1145" height="474">
+    <h1>Pronto</h1>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+  </main>
+
+  <footer>© <span id="y">2026</span> <strong>HIDROFLUX SpA</strong></footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
